@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Jump();
             Debug.Log("First Jump");
+            Debug.Log(rb.velocity);
         }
         //Double Jump
         else if(Input.GetKeyDown("w") && !grounded && enableJump)
@@ -39,12 +40,13 @@ public class PlayerMovement : MonoBehaviour
             Jump();
             enableJump = false;
             Debug.Log("Second Jump");
+            Debug.Log(rb.velocity);
         }
     }
     void Jump()
     {
         Vector3 oldVelocity = rb.velocity;
-        rb.velocity = new Vector3(oldVelocity.x, jumpSpeed + oldVelocity.y, oldVelocity.z);
+        rb.velocity = new Vector3(oldVelocity.x, jumpSpeed, oldVelocity.z);
         grounded = false;
     }
     void OnCollisionEnter(Collision col)
