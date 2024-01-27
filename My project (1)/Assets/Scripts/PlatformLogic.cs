@@ -6,11 +6,15 @@ public class PlatformLogic : MonoBehaviour
 {
     public BoxCollider collider;
     public BoxCollider parentCollider;
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), parentCollider.gameObject.layer, true);       
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), parentCollider.gameObject.layer, true);     
+
+        player = GameObject.FindWithTag("Player");
+
     }
 
     // Update is called once per frame
@@ -27,9 +31,10 @@ public class PlatformLogic : MonoBehaviour
             float side = Mathf.Atan2(dir.y, dir.x);
      
      
-            if(side > 0 && side < Mathf.PI)
+            if(side > 0 && side < Mathf.PI) 
             {
-                Physics.IgnoreLayerCollision(col.gameObject.layer, parentCollider.gameObject.layer, true);
+                Physics.IgnoreLayerCollision(col.gameObject.layer, parentCollider.gameObject.layer, true); 
+
             }
             else
             {

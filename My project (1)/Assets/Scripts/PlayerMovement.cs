@@ -11,15 +11,37 @@ public class PlayerMovement : MonoBehaviour
     public bool grounded = true;
 
     public GameObject parryBoxAnim;
+
+    public float customGravity;
+
+    private float jumpTimer;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // gravity
+        if(!grounded)
+        { 
+            if(rb.velocity.y < 4)
+            { 
+                Vector3 gravity = Vector3.up * customGravity * 1.8f;
+                rb.AddForce(gravity, ForceMode.Acceleration);
+            }
+            else{
+
+                Vector3 gravity = Vector3.up * customGravity;
+                rb.AddForce(gravity, ForceMode.Acceleration);
+                
+            }
+        }
+
+        Debug.Log(rb.velocity.y);
+
         //x axis movement
         float xAxis = Input.GetAxis("Horizontal");
         if(xAxis != 0.0f)
@@ -43,6 +65,8 @@ public class PlayerMovement : MonoBehaviour
         //Jumps
         if(Input.GetKeyDown("w") && grounded)
         {
+ 
+            rb.useGravity = false;
             Jump();
         }
         //Double Jump
@@ -50,7 +74,8 @@ public class PlayerMovement : MonoBehaviour
         {
             Jump();
             enableJump = false;
-        }
+        }  
+
     }
     void Jump()
     {
@@ -64,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
         {
             grounded = true;
             enableJump = true;
+            rb.useGravity = true;
         }
     }
 }
