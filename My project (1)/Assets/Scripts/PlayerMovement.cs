@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     public float jumpSpeed = 100.0f;
     public bool enableJump = false;
     public bool grounded = true;
+
+    public GameObject parryBoxAnim;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,11 +32,13 @@ public class PlayerMovement : MonoBehaviour
         //Face the direction you are moving
         if(xAxis > 0)
         {
-            transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
+            transform.rotation = Quaternion.Euler(new Vector3(0f, 90f, 0f));
+            parryBoxAnim.transform.localRotation = Quaternion.Euler(new Vector3(0f, -90f, 0f));
         }
         else if(xAxis < 0)
         {
-            transform.rotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));
+            transform.rotation = Quaternion.Euler(new Vector3(0f,270f, 0f));
+            parryBoxAnim.transform.localRotation = Quaternion.Euler(new Vector3(0f, 90f, 0f));
         }
         //Jumps
         if(Input.GetKeyDown("w") && grounded)
