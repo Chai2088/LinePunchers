@@ -7,6 +7,8 @@ public class PlayerAttack : MonoBehaviour
     public GameObject attackBox;
     public GameObject parryBox;
     public bool onParry;
+
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,21 +18,37 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey("f"))
+        AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+
+        if(Input.GetKeyDown("f"))
         {
             attackBox.SetActive(true);
+            if(stateInfo.IsName("Armature|PigeonJump"))
+            {
+                Debug.Log("AirAttack");
+                anim.Play("Armature|PigeonJumpAttack");
+            }
+            else
+            {
+                anim.Play("Armature|PigeonAttack");
+            }
         }
         else
         {
             attackBox.SetActive(false);
         }
-        if(Input.GetKey("r"))
+        if(!stateInfo.IsName("Armature|PigeonJump") || stateInfo.IsName("Armature|PigeonJumpAttack"))
         {
-            parryBox.SetActive(true);
-        }
-        else
-        {
-            parryBox.SetActive(false);
+            if(Input.GetKey("r"))
+            {
+                parryBox.SetActive(true);
+
+                anim.Play("Armature|PigeonParry");
+            }
+            else
+            {
+                parryBox.SetActive(false);
+            }
         }
     }
 }
