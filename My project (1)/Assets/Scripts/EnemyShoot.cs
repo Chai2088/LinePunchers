@@ -13,6 +13,7 @@ public class EnemyShoot : MonoBehaviour
     public GameObject bullet; //Your set-up prefab
     public float fireRate = 3000f; //Fire every 3 seconds
     public float shootingPower = 10f; //force of projection
+    private Rigidbody rb;
  
 
     //TIME
@@ -23,27 +24,34 @@ public class EnemyShoot : MonoBehaviour
     void Start()
     {
         target = GameObject.FindWithTag("Player").transform;
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        float distanceToPlayer = (target.position - transform.position).magnitude;
-        if (distanceToPlayer < area)
+        
+        // raycast
+        // Cast a ray horizontally from the enemy
+        RaycastHit hit;
+        
+        if (Physics.Raycast(transform.position, Vector3.left, out hit, area) || Physics.Raycast(transform.position, Vector3.right, out hit, area) )
         {
-            // if horizontal raycast is on
-
-            Shoot();
+            // If the ray hits the player, shoot
+            if (hit.transform.tag == "Player")
+            {
+                Shoot();
+            }
         }
-
+               
+        timeSinceLastShot += Time.deltaTime;
     }
 
     public void Shoot()
     { 
-        timeSinceLastShot += Time.deltaTime;
         if (timeSinceLastShot > shootingTime)
-        {
+        { 
+                Debug.Log(timeSinceLastShot); 
             timeSinceLastShot = 0; //set the local var. to current time of shooting
             Vector3 myPos = new Vector3(transform.position.x, transform.position.y, 0); //our curr position is where our muzzle points
             Vector3 targetPos = new Vector3(target.position.x, target.position.y, 0); //our curr position is where our muzzle points
