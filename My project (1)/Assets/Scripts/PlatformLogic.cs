@@ -29,12 +29,10 @@ public class PlatformLogic : MonoBehaviour
      
             if(side > 0 && side < Mathf.PI)
             {
-                Debug.Log("Entering");
                 Physics.IgnoreLayerCollision(col.gameObject.layer, parentCollider.gameObject.layer, true);
             }
             else
             {
-                Debug.Log("Entering");
                 Physics.IgnoreLayerCollision(col.gameObject.layer, parentCollider.gameObject.layer, false);
             }
         }
@@ -44,7 +42,6 @@ public class PlatformLogic : MonoBehaviour
     {
         if(col.gameObject.CompareTag("Player") || col.gameObject.tag == "Enemy")
         {
-            Debug.Log("Exiting");
             Physics.IgnoreLayerCollision(col.gameObject.layer, parentCollider.gameObject.layer, false);
         }
     }

@@ -44,16 +44,12 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKeyDown("w") && grounded)
         {
             Jump();
-            Debug.Log("First Jump");
-            Debug.Log(rb.velocity);
         }
         //Double Jump
         else if(Input.GetKeyDown("w") && !grounded && enableJump)
         {
             Jump();
             enableJump = false;
-            Debug.Log("Second Jump");
-            Debug.Log(rb.velocity);
         }
     }
     void Jump()

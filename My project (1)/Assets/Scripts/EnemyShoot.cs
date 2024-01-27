@@ -11,7 +11,7 @@ public class EnemyShoot : MonoBehaviour
     public Transform target; //where we want to shoot
 
     public GameObject bullet; //Your set-up prefab
-    public float fireRate = 3000f; //Fire every 3 seconds
+    public float fireRate = 1500f; //Fire every 3 seconds
     public float shootingPower = 5f; //force of projection
     private Rigidbody rb;
  
@@ -51,7 +51,7 @@ public class EnemyShoot : MonoBehaviour
     { 
         if (timeSinceLastShot > shootingTime)
         { 
-                Debug.Log(timeSinceLastShot); 
+            Debug.Log(timeSinceLastShot); 
             timeSinceLastShot = 0; //set the local var. to current time of shooting
             Vector3 myPos = new Vector3(transform.position.x, transform.position.y, 0); //our curr position is where our muzzle points
             Vector3 targetPos = new Vector3(target.position.x, target.position.y, 0); //our curr position is where our muzzle points

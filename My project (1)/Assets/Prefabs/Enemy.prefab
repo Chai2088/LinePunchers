@@ -148,12 +148,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: 10
-  spawn_offset: 5
+  spawn_offset: 0.1
   target: {fileID: 0}
   bullet: {fileID: 3481537990194904425, guid: 6110bd2e7d11cb946a4ba1212ddc64ac, type: 3}
-  fireRate: 3000
-  shootingPower: 10
-  shootingTime: 3
+  fireRate: 1000
+  shootingPower: 5
+  shootingTime: 2
   timeSinceLastShot: 0
 --- !u!114 &-8122518550953863987
 MonoBehaviour:

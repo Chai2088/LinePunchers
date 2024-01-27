@@ -26,14 +26,16 @@ public class EnemyBullet : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
+        Debug.Log("Enemy bullet colliding");
         if (collision.gameObject.tag == "Player")
         {
             Pop();
         }
         else if(collision.gameObject.tag == "PlayerParry")
         {
+            Debug.Log("Parry");
             Pop();
         }
     }
@@ -44,8 +46,8 @@ public class EnemyBullet : MonoBehaviour
     }
     void Pop()
     {
-        anim.Play("Attack2Pop");
         Invoke("Die", 1.0f);
+        anim.Play("Attack2Pop");
     }
 
 }

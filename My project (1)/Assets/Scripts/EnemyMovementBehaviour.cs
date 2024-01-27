@@ -21,7 +21,6 @@ public class EnemyMovementBehaviour : MonoBehaviour
     private Transform player;
     private Rigidbody EnemyRb2d;
 
-
     public float damagedTime = 0.3f;
     public float timeSinceChangedColors = 0f;
     bool bulletHit = false;
@@ -138,7 +137,6 @@ public class EnemyMovementBehaviour : MonoBehaviour
     {
         if (collision.gameObject.tag == "PlayerBullet")
         {
-            Debug.Log("Hitted");
             bulletHit = true;
             TakeDamage(1);
             ChangeColor(color1ToTurnTo);
