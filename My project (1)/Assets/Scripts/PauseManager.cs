@@ -9,6 +9,7 @@ public class PauseManager : MonoBehaviour
     public Button resumeButton;
     public Button restartButton;
     public Button quitButton;
+
     // Start is called before the first frame update
     void Start()
     {

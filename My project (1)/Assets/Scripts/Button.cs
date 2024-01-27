@@ -8,6 +8,7 @@ using System.Collections;
 public class Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
   {
  
+    public int buttonIndex;
     private Vector3 size;
     void Start()
     {
@@ -25,10 +26,42 @@ public class Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
 
     public void OnButtonClick()
-    {
-        //if (GUI.Button(new Rect(10, 10, 100, 30), "Change Scene"))
+    { 
+
+        // quit
+        if(buttonIndex == 0)
         { 
+            Debug.Log("quit");
+            Application.Quit(); 
+        }
+
+        // resume
+        if(buttonIndex == 1)
+        {   
+            Debug.Log("resume");
+            Time.timeScale = 1f; 
+        } 
+
+        // play
+        if(buttonIndex == 2)
+        {   
+            Debug.Log("play");
             SceneManager.LoadScene("SampleScene");
+        } 
+
+        // restart
+        if(buttonIndex == 3)
+        {   
+            Debug.Log("restart");
+            SceneManager.LoadScene("SampleScene");
+        } 
+
+        // main menu
+        if(buttonIndex == 4)
+        { 
+            Debug.Log("menu");
+            Application.Quit();
+            SceneManager.LoadScene("MainMenu");
         }
     }
 
