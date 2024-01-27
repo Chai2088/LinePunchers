@@ -15,6 +15,8 @@ public class PortalLogic : MonoBehaviour
     public float nTime;
 
     public float wallTimer = 0.0f;
+
+    public string firstAnimName;
     private SpriteRenderer rend;
     // Start is called before the first frame update
     void Start()
@@ -22,7 +24,7 @@ public class PortalLogic : MonoBehaviour
         if(enemyCount > 0)
             dt = spawnTime / enemyCount;
         
-        anim.Play("EnterContainer");
+        anim.Play(firstAnimName);
         rend = GetComponent<SpriteRenderer>();
     }
 
@@ -34,7 +36,7 @@ public class PortalLogic : MonoBehaviour
 
         if(stateInfo.normalizedTime < 0.9f)
             return;
-        if(stateInfo.normalizedTime > 1.0f)
+        if(stateInfo.normalizedTime > 1.5f)
             RestoreWall();
         
         if(endSpawn)

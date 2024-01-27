@@ -28,6 +28,7 @@ public class EnemyMovementBehaviour : MonoBehaviour
 
     //Reference to sprite renderer component
     private Renderer rend;
+    private ParticleSystem particles;
 
     //Color value that we can set in Ispector
     [SerializeField]
@@ -45,6 +46,8 @@ public class EnemyMovementBehaviour : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
         EnemyRb2d = GetComponent<Rigidbody>();
         obstacleLayer = 1 << LayerMask.NameToLayer("PlatformEnabled");
+        particles = GetComponent<ParticleSystem>();
+        particles.Stop();
     }
 
 
@@ -154,7 +157,7 @@ public class EnemyMovementBehaviour : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-
+        particles.Play();
         if (health <= 0)
         {
             Die();
