@@ -15,7 +15,7 @@ public class Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
     public void OnPointerEnter(PointerEventData eventData)
     { 
-        transform.localScale = size * 1.1f;
+        transform.localScale = size * 1.2f;
     }
     public void OnPointerExit(PointerEventData eventData)
     {
@@ -31,4 +31,7 @@ public class Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             SceneManager.LoadScene("SampleScene");
         }
     }
+
+ 
+
   }

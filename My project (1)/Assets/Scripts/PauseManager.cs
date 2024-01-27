@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
 {
@@ -12,10 +13,7 @@ public class PauseManager : MonoBehaviour
     void Start()
     {
         SetPauseMenuActive(false);
-
-        resumeButton.onClick.AddListener(ResumeGame);
-        restartButton.onClick.AddListener(RestartGame);
-        quitButton.onClick.AddListener(QuitGame);
+ 
     }
 
     // Update is called once per frame
@@ -31,6 +29,25 @@ public class PauseManager : MonoBehaviour
     {
         bool isPaused = !pauseMenuUI.activeSelf;
 
-        //Time.timeScale = isPaused 
+
+        Time.timeScale = isPaused ? 0f : 1f;
+        SetPauseMenuActive(isPaused);
+    }
+
+    void SetPauseMenuActive(bool isActive){
+        pauseMenuUI.SetActive(isActive);
+    }
+
+    void ResumeGame()
+    {
+        TogglePauseMenu();
+    }
+    void RestartGame()
+    {
+
+    }
+    void QuitGame()
+    {
+
     }
 }
