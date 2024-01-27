@@ -31,6 +31,10 @@ public class PlatformLogic : MonoBehaviour
      
             if(side > 0 && side < Mathf.PI)
                 parentCollider.enabled = false;
+            else
+            {
+                parentCollider.enabled = true;
+            }
         }
 
     }
