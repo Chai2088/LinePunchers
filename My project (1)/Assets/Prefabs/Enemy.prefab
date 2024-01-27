@@ -150,7 +150,7 @@ MonoBehaviour:
   area: 10
   spawn_offset: 5
   target: {fileID: 0}
-  bullet: {fileID: 2046501343793165587, guid: b6a12c636478a6240b4988485ea71a2e, type: 3}
+  bullet: {fileID: 3481537990194904425, guid: 6110bd2e7d11cb946a4ba1212ddc64ac, type: 3}
   fireRate: 3000
   shootingPower: 10
   shootingTime: 3

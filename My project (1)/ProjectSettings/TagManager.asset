@@ -8,6 +8,7 @@ TagManager:
   - PlatformJumper
   - Enemy
   - PlayerBullet
+  - PlayerParry
   layers:
   - Default
   - TransparentFX

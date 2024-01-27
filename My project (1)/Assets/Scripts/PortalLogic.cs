@@ -42,7 +42,7 @@ public class PortalLogic : MonoBehaviour
         timer += Time.deltaTime;
         if(timer > counter * dt)
         {
-            Instantiate(enemy, transform.position + new Vector3(counter * 1.0f, 0.0f, 0.0f), Quaternion.identity);
+            Instantiate(enemy, transform.position, Quaternion.identity);
             counter++;
         }
         if(counter == enemyCount)

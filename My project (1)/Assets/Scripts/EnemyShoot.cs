@@ -5,14 +5,14 @@ using UnityEngine;
 public class EnemyShoot : MonoBehaviour
 {
     public float area = 10f;
-    public float spawn_offset = 5f;
+    public float spawn_offset = 0.1f;
     //-----------------------------
 
     public Transform target; //where we want to shoot
 
     public GameObject bullet; //Your set-up prefab
     public float fireRate = 3000f; //Fire every 3 seconds
-    public float shootingPower = 10f; //force of projection
+    public float shootingPower = 5f; //force of projection
     private Rigidbody rb;
  
 
