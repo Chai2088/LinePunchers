@@ -1,8 +1,35 @@
 fileFormatVersion: 2
 guid: 8ace6036a0ee284488f7f0828f50f8a0
 ModelImporter:
-  serializedVersion: 22200
-  internalIDToNameTable: []
+  serializedVersion: 21202
+  internalIDToNameTable:
+  - first:
+      74: -3356870715296162825
+    second: Armature|Attack01
+  - first:
+      74: 3248260109008528268
+    second: Armature|Attack01.001
+  - first:
+      74: 7780548235976411776
+    second: Armature|entry
+  - first:
+      74: 3137096394148255692
+    second: Armature|entry.001
+  - first:
+      74: -6849222018171476697
+    second: Armature|exit
+  - first:
+      74: 4126840088676781541
+    second: Armature|exit.001
+  - first:
+      74: -8945691123924629249
+    second: Armature|Idle
+  - first:
+      74: 6711062265588765878
+    second: Armature|Parryhit01
+  - first:
+      74: -70641971818658834
+    second: Armature|Parryhit01.001
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -40,7 +67,6 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -68,7 +94,6 @@ ModelImporter:
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -101,8 +126,6 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
-  importBlendShapeDeformPercent: 1
-  remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
