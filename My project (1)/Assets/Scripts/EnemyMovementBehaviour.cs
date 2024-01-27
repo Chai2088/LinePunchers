@@ -8,6 +8,9 @@ public class EnemyMovementBehaviour : MonoBehaviour
     public int health = 3;
 
     public float area = 10f;
+    public float jumpSpeed = 100.0f;
+    public bool enableJump = false;
+    public bool grounded = true;
 
     public bool facingRight = false;
     Quaternion charecterScale;
@@ -58,15 +61,15 @@ public class EnemyMovementBehaviour : MonoBehaviour
             direction = direction.normalized;
             EnemyRb2d.MovePosition(EnemyRb2d.position + direction * EnemySpeed * Time.deltaTime);
 
+
         }
+        
 
         if (player.transform.position.x < gameObject.transform.position.x && facingRight)
             Flip();
         if (player.transform.position.x > gameObject.transform.position.x && !facingRight)
             Flip();
-
-        //COLOR ---------------------------------
-
+ 
 
         //Check if I have been damaged 
         if (bulletHit)
@@ -107,14 +110,14 @@ public class EnemyMovementBehaviour : MonoBehaviour
         gameObject.transform.localScale = tmpScale;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
+    void OnCollisionEnter(Collision collision)
+    { 
+        if(collision.gameObject.tag == "Floor")
         {
-            Destroy(gameObject);
+            grounded = true;
+            enableJump = true;
         }
-
-    
+     
         if (collision.gameObject.tag == "PlayerBullet")
         {
 
@@ -122,6 +125,16 @@ public class EnemyMovementBehaviour : MonoBehaviour
             TakeDamage(1);
         }
  
+    }
+    void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == "PlatformJumper")
+        { 
+            if(grounded)
+            {
+                Jump();
+            }
+        }
     }
 
     private void ChangeColor(Color colorToChange)
@@ -144,6 +157,12 @@ public class EnemyMovementBehaviour : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+    }
+    void Jump()
+    {
+        Vector3 oldVelocity = EnemyRb2d.velocity;
+        EnemyRb2d.velocity = new Vector3(oldVelocity.x, jumpSpeed, oldVelocity.z);
+        grounded = false;
     }
 }
 
