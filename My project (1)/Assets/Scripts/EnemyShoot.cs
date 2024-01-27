@@ -35,19 +35,46 @@ public class EnemyShoot : MonoBehaviour
         // Cast a ray horizontally from the enemy
         RaycastHit hit;
         
-        if (Physics.Raycast(transform.position, Vector3.left, out hit, area) || Physics.Raycast(transform.position, Vector3.right, out hit, area) )
+        if (Physics.Raycast(transform.position, Vector3.left, out hit, area))
         {
             // If the ray hits the player, shoot
             if (hit.transform.tag == "Player")
             {
-                Shoot();
+                Shoot(Vector3.left);
             }
         }
+        if (Physics.Raycast(transform.position, Vector3.right, out hit, area) )
+        {
+            // If the ray hits the player, shoot
+            if (hit.transform.tag == "Player")
+            {
+                Shoot(Vector3.right);
+            }
+        }
+ 
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, area))
+        {
+            // If the ray hits the player, shoot
+            if (hit.transform.tag == "Player")
+            {
+                Shoot(Vector3.down);
+            }
+        }
+        
+        if (Physics.Raycast(transform.position, Vector3.up, out hit, area) )
+        {
+            // If the ray hits the player, shoot
+            if (hit.transform.tag == "Player")
+            {
+                Shoot(Vector3.up);
+            }
+        }
+               
                
         timeSinceLastShot += Time.deltaTime;
     }
 
-    public void Shoot()
+    public void Shoot(Vector3 direction)
     { 
         if (timeSinceLastShot > shootingTime)
         { 
@@ -56,7 +83,7 @@ public class EnemyShoot : MonoBehaviour
             Vector3 myPos = new Vector3(transform.position.x, transform.position.y, 0); //our curr position is where our muzzle points
             Vector3 targetPos = new Vector3(target.position.x, target.position.y, 0); //our curr position is where our muzzle points
 
-            Vector3 direction = Vector3.Normalize(targetPos - myPos); //get the direction to the target
+            //Vector3 direction = Vector3.Normalize(targetPos - myPos); //get the direction to the target
             GameObject projectile = Instantiate(bullet, myPos + direction * spawn_offset, Quaternion.identity); //create our bullet
             projectile.GetComponent<Rigidbody>().velocity = direction * shootingPower; //shoot the bullet
         }

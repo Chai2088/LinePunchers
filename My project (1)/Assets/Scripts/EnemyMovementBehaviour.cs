@@ -60,8 +60,6 @@ public class EnemyMovementBehaviour : MonoBehaviour
             Vector3 direction = new Vector3(player.position.x, player.position.y, 0) - new Vector3(transform.position.x, transform.position.y, 0);
             direction = direction.normalized;
             EnemyRb2d.MovePosition(EnemyRb2d.position + direction * EnemySpeed * Time.deltaTime);
-
-
         }
         
 
@@ -97,8 +95,6 @@ public class EnemyMovementBehaviour : MonoBehaviour
         {
             ChangeColor(color1ToTurnTo);
         }
-
-
     }
 
     void Flip()
@@ -130,10 +126,15 @@ public class EnemyMovementBehaviour : MonoBehaviour
     {
         if (collision.gameObject.tag == "PlatformJumper")
         { 
-            if(grounded)
-            {
-                Jump();
+            if(player.position.y > (transform.position.y + 1))
+            { 
+                if(grounded)
+                {
+                    Debug.Log("jump!");
+                    Jump();
+                }
             }
+
         }
     }
 
