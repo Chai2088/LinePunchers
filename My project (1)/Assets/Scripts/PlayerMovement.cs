@@ -27,6 +27,15 @@ public class PlayerMovement : MonoBehaviour
             Vector3 movement = new Vector3(xAxis, 0, 0) * speed + oldV;
             rb.velocity = movement;
         }
+        //Face the direction you are moving
+        if(xAxis > 0)
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
+        }
+        else if(xAxis < 0)
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));
+        }
         //Jumps
         if(Input.GetKeyDown("w") && grounded)
         {

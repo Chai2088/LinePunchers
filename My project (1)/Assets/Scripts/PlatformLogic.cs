@@ -9,7 +9,8 @@ public class PlatformLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        parentCollider.enabled = false;        
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), parentCollider.gameObject.layer, true);       
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), parentCollider.gameObject.layer, true);     
     }
 
     // Update is called once per frame
@@ -19,31 +20,32 @@ public class PlatformLogic : MonoBehaviour
     }
     void OnTriggerEnter(Collider col)
     {
-        Debug.Log("Entering");
-        if(col.gameObject.tag == "Player")
+        if(col.gameObject.tag == "Player" || col.gameObject.tag == "Enemy")
         {
             Vector3 dir = transform.position - col.transform.position;
             dir = dir.normalized;
             float side = Mathf.Atan2(dir.y, dir.x);
      
-            Debug.Log(dir);
-            Debug.Log(side);
      
             if(side > 0 && side < Mathf.PI)
-                parentCollider.enabled = false;
+            {
+                Debug.Log("Entering");
+                Physics.IgnoreLayerCollision(col.gameObject.layer, parentCollider.gameObject.layer, true);
+            }
             else
             {
-                parentCollider.enabled = true;
+                Debug.Log("Entering");
+                Physics.IgnoreLayerCollision(col.gameObject.layer, parentCollider.gameObject.layer, false);
             }
         }
 
     }
     void OnTriggerExit(Collider col)
     {
-        Debug.Log("Exiting 1");
-        if(col.gameObject.CompareTag("Player"))
+        if(col.gameObject.CompareTag("Player") || col.gameObject.tag == "Enemy")
         {
-            parentCollider.enabled = true;
+            Debug.Log("Exiting");
+            Physics.IgnoreLayerCollision(col.gameObject.layer, parentCollider.gameObject.layer, false);
         }
     }
 }

@@ -36,11 +36,16 @@ public class EnemyMovementBehaviour : MonoBehaviour
     [SerializeField]
     private Color color2ToTurnTo = Color.white;
 
+
+    public float raycastDistance = 10.0f;
+    private LayerMask obstacleLayer;
+
     void Start()
     {
         currentlyDamaged = true;
         player = GameObject.FindWithTag("Player").transform;
         EnemyRb2d = GetComponent<Rigidbody>();
+        obstacleLayer = 1 << LayerMask.NameToLayer("PlatformEnabled");
     }
 
 
@@ -63,13 +68,24 @@ public class EnemyMovementBehaviour : MonoBehaviour
 
 
         }
-        
-
         if (player.transform.position.x < gameObject.transform.position.x && facingRight)
             Flip();
         if (player.transform.position.x > gameObject.transform.position.x && !facingRight)
             Flip();
  
+        //Player is higher than the enemy
+        if(player.transform.position.y - player.transform.localScale.y * 0.5f > transform.position.y)
+        {
+            //Check if there is platform above
+            Ray ray = new Ray(transform.position, Vector3.up);
+
+            // Check if the ray hits any colliders within the specified distance and on the specified layer
+            if (Physics.Raycast(ray, raycastDistance, obstacleLayer))
+            {
+                // There is an object above
+                Jump();
+            }
+        }   
 
         //Check if I have been damaged 
         if (bulletHit)
@@ -116,24 +132,16 @@ public class EnemyMovementBehaviour : MonoBehaviour
         {
             grounded = true;
             enableJump = true;
-        }
-     
-        if (collision.gameObject.tag == "PlayerBullet")
-        {
-
-            bulletHit = true;
-            TakeDamage(1);
-        }
- 
+        } 
     }
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "PlatformJumper")
-        { 
-            if(grounded)
-            {
-                Jump();
-            }
+        if (collision.gameObject.tag == "PlayerBullet")
+        {
+            Debug.Log("Hitted");
+            bulletHit = true;
+            TakeDamage(1);
+            ChangeColor(color1ToTurnTo);
         }
     }
 
@@ -160,9 +168,12 @@ public class EnemyMovementBehaviour : MonoBehaviour
     }
     void Jump()
     {
-        Vector3 oldVelocity = EnemyRb2d.velocity;
-        EnemyRb2d.velocity = new Vector3(oldVelocity.x, jumpSpeed, oldVelocity.z);
-        grounded = false;
+        if(grounded)
+        {
+            Vector3 oldVelocity = EnemyRb2d.velocity;
+            EnemyRb2d.velocity = new Vector3(oldVelocity.x, jumpSpeed, oldVelocity.z);
+            grounded = false;
+        }
     }
 }
 
