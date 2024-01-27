@@ -57,6 +57,14 @@ public class EnemyShoot : MonoBehaviour
             Vector3 targetPos = new Vector3(target.position.x, target.position.y, 0); //our curr position is where our muzzle points
 
             Vector3 direction = Vector3.Normalize(targetPos - myPos); //get the direction to the target
+            if(direction.x > 0)
+            {
+                direction = new Vector3(1.0f, 0.0f, 0.0f);
+            }
+            else
+            {
+                direction = new Vector3(-1.0f, 0.0f, 0.0f);
+            }
             GameObject projectile = Instantiate(bullet, myPos + direction * spawn_offset, Quaternion.identity); //create our bullet
             projectile.GetComponent<Rigidbody>().velocity = direction * shootingPower; //shoot the bullet
         }

@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public bool enableJump = false;
     public bool grounded = true;
 
+    public float health = 3.0f;
+
     public GameObject parryBoxAnim;
     // Start is called before the first frame update
     void Start()
@@ -65,5 +67,24 @@ public class PlayerMovement : MonoBehaviour
             grounded = true;
             enableJump = true;
         }
+    }
+    void OnTriggerEnter(Collider col)
+    {
+        if(col.gameObject.tag == "EnemyBullet")
+        {
+            TakeDamage();
+        }
+    }
+    void TakeDamage()
+    {
+        health -= 1.0f;
+        if(health < 0.0f)
+        {
+            Invoke("Die", 1.5f);
+        }
+    }
+    void Die()
+    {
+        Destroy(gameObject);
     }
 }

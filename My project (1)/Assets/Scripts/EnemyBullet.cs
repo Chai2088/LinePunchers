@@ -10,7 +10,7 @@ public class EnemyBullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("Pop", 3.0f);
+        Invoke("Pop", 5.0f);
     } 
     
     // Update is called once per frame
