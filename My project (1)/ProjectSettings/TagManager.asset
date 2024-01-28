@@ -10,6 +10,7 @@ TagManager:
   - PlayerBullet
   - PlayerParry
   - EnemyBullet
+  - Portal
   layers:
   - Default
   - TransparentFX

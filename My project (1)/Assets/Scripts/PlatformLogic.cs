@@ -42,7 +42,11 @@ public class PlatformLogic : MonoBehaviour
     {
         if(col.gameObject.CompareTag("Player") || col.gameObject.tag == "Enemy")
         {
-            Physics.IgnoreLayerCollision(col.gameObject.layer, parentCollider.gameObject.layer, false);
+            //Make sure your position is higher than the platforms
+            if(col.transform.position.y > parentCollider.transform.position.y)
+            {
+                Physics.IgnoreLayerCollision(col.gameObject.layer, parentCollider.gameObject.layer, false);
+            }
         }
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -45,14 +46,16 @@ public class PlayerMovement : MonoBehaviour
             anim.ResetTrigger("Land");
         }
         //Face the direction you are moving
-        if(xAxis > 0)
+        if(xAxis < 0)
         {
-            transform.rotation = Quaternion.Euler(new Vector3(0f, 90f, 0f));
+            Vector3 oldScale = transform.localScale;
+            transform.localScale = new Vector3(oldScale.x, oldScale.y, Mathf.Abs(oldScale.z));
             parryBoxAnim.transform.localRotation = Quaternion.Euler(new Vector3(0f, -90f, 0f));
         }
-        else if(xAxis < 0)
+        else if(xAxis > 0)
         {
-            transform.rotation = Quaternion.Euler(new Vector3(0f,270f, 0f));
+            Vector3 oldScale = transform.localScale;
+            transform.localScale = new Vector3(oldScale.x, oldScale.y, -Mathf.Abs(oldScale.z));
             parryBoxAnim.transform.localRotation = Quaternion.Euler(new Vector3(0f, 90f, 0f));
         }
         //Jumps
@@ -116,5 +119,6 @@ public class PlayerMovement : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+        SceneManager.LoadScene("GameOver");
     }
 }

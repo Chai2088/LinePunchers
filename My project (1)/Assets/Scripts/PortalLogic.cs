@@ -59,4 +59,12 @@ public class PortalLogic : MonoBehaviour
             rend.color = new Vector4(color.x, color.y, color.z, 1.0f - (wallTimer / 1.5f));
         }
     }
+    public void SetEnemyCount(int count)
+    {
+        if(count > 0)
+        {
+            enemyCount = count;
+            dt = spawnTime / enemyCount;
+        }
+    }
 }
