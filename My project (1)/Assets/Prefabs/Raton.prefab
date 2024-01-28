@@ -171,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemySpeed: 1
   health: 3
-  area: 10
+  area: 100
   jumpSpeed: 10
   enableJump: 0
   grounded: 1
