@@ -16,11 +16,7 @@ public class CatHealthLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-        if(stateInfo.IsName("Armature|exit") && stateInfo.normalizedTime > 1.0f)
-        {
-            anim.gameObject.SetActive(false);
-        }
+
     }
     void OnTriggerEnter(Collider other)
     {
@@ -32,9 +28,14 @@ public class CatHealthLogic : MonoBehaviour
     void TakeDamage()
     {
         health -= 1.0f;
+        if(health == 5.0f)
+        {
+            anim.Play("Armature|exit");
+            return;
+        }
         if(health < 0.0f)
         {
-            anim.SetTrigger("Exit");
+
             anim.SetBool("BlockInput", true);
         }
     }

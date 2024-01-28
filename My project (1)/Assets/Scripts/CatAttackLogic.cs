@@ -14,8 +14,6 @@ public class CatAttackLogic : MonoBehaviour
     void Update()
     {
         anim.ResetTrigger("Parry");
-        anim.ResetTrigger("Attack");
-        anim.SetTrigger("Idle");
     }
     void OnTriggerEnter(Collider other)
     {
@@ -25,9 +23,11 @@ public class CatAttackLogic : MonoBehaviour
         
         if(other.gameObject.tag == "PlayerParry")
         {
-            anim.ResetTrigger("Attack");
             anim.SetTrigger("Parry");
-            anim.SetTrigger("Idle");
+            gameObject.SetActive(false);
+        }
+        else if(other.gameObject.tag == "Player")
+        {
             gameObject.SetActive(false);
         }
     }
