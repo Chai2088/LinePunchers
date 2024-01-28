@@ -40,6 +40,8 @@ public class EnemyMovementBehaviour : MonoBehaviour
     public float raycastDistance = 10.0f;
     private LayerMask obstacleLayer;
 
+    public Animator anim;
+
     void Start()
     {
         currentlyDamaged = true;
@@ -67,14 +69,32 @@ public class EnemyMovementBehaviour : MonoBehaviour
             Vector3 direction = new Vector3(player.position.x, player.position.y, 0) - new Vector3(transform.position.x, transform.position.y, 0);
             direction = direction.normalized;
             EnemyRb2d.MovePosition(EnemyRb2d.position + direction * EnemySpeed * Time.deltaTime);
-
-
         }
+        anim.SetBool("Walk", runForIt);
+        //Flip gameObject
+        Vector3 dir = player.transform.position - transform.position;
+
+        Debug.Log(dir);
+        if(dir.x > 0.0f)
+        {
+            Vector3 oldScale = transform.localScale;
+            transform.localScale = new Vector3(oldScale.x, oldScale.y, -Mathf.Abs(oldScale.z));
+        }
+        else
+        {
+            Vector3 oldScale = transform.localScale;
+            transform.localScale = new Vector3(oldScale.x, oldScale.y, Mathf.Abs(oldScale.z));
+        }
+        //Flip shoot direction
         if (player.transform.position.x < gameObject.transform.position.x && facingRight)
+        {
             Flip();
+        }
+
         if (player.transform.position.x > gameObject.transform.position.x && !facingRight)
+        {
             Flip();
- 
+        }
         //Player is higher than the enemy
         if(player.transform.position.y - player.transform.localScale.y * 0.5f > transform.position.y)
         {
@@ -107,13 +127,13 @@ public class EnemyMovementBehaviour : MonoBehaviour
 
         if (currentlyDamaged)
         {
-            ChangeColor(color2ToTurnTo);
+            //ChangeColor(color2ToTurnTo);
 
         }
 
         else
         {
-            ChangeColor(color1ToTurnTo);
+            //ChangeColor(color1ToTurnTo);
         }
 
 
@@ -142,7 +162,7 @@ public class EnemyMovementBehaviour : MonoBehaviour
         {
             bulletHit = true;
             TakeDamage(1);
-            ChangeColor(color1ToTurnTo);
+            //ChangeColor(color1ToTurnTo);
         }
     }
 
@@ -156,6 +176,7 @@ public class EnemyMovementBehaviour : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        anim.Play("Armature|Hurt");
         health -= damage;
         particles.Play();
         if (health <= 0)

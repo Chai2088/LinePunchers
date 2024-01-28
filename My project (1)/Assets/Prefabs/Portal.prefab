@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f90f7e899a2a724d83035c0f258f06e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 6166830292729732533, guid: 2e5ab7d80239c924d88f0454f5c5ab19, type: 3}
+  enemy: {fileID: 6567827419967611174, guid: d22258f4458ed74478e840e4df895584, type: 3}
   anim: {fileID: 1618391099065765902}
   enemyCount: 5
   timer: 0
@@ -128,3 +128,4 @@ MonoBehaviour:
   dt: 0
   nTime: 0
   wallTimer: 0
+  firstAnimName: 

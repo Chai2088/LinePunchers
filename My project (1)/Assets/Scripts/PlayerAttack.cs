@@ -20,10 +20,10 @@ public class PlayerAttack : MonoBehaviour
     {
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
 
-        if(Input.GetKeyDown("f"))
+        if(Input.GetKey("f"))
         {
             attackBox.SetActive(true);
-            if(stateInfo.IsName("Armature|PigeonJump"))
+            if(stateInfo.IsName("Armature|PigeonJump") || stateInfo.IsName("Armature|PigeonJumpAttack"))
             {
                 Debug.Log("AirAttack");
                 anim.Play("Armature|PigeonJumpAttack");

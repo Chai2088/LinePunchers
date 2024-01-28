@@ -20,6 +20,7 @@ public class EnemyShoot : MonoBehaviour
     public float shootingTime = 3f; //local to store last time we shot so we can make sure its done every 3s
     public float timeSinceLastShot = 0f;
 
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +31,6 @@ public class EnemyShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         // raycast
         // Cast a ray horizontally from the enemy
         RaycastHit hit;
@@ -51,9 +51,9 @@ public class EnemyShoot : MonoBehaviour
     { 
         if (timeSinceLastShot > shootingTime)
         { 
-            Debug.Log(timeSinceLastShot); 
+            anim.Play("Armature|Attack");
             timeSinceLastShot = 0; //set the local var. to current time of shooting
-            Vector3 myPos = new Vector3(transform.position.x, transform.position.y, 0); //our curr position is where our muzzle points
+            Vector3 myPos = new Vector3(transform.position.x, transform.position.y + 0.25f, 0); //our curr position is where our muzzle points
             Vector3 targetPos = new Vector3(target.position.x, target.position.y, 0); //our curr position is where our muzzle points
 
             Vector3 direction = Vector3.Normalize(targetPos - myPos); //get the direction to the target
