@@ -9,12 +9,24 @@ public class PlayerAttack : MonoBehaviour
     public bool onParry;
 
     public Animator anim;
+
+    private AudioSource audioSource;
+    public AudioClip Tickles;
+
     // Start is called before the first frame update
     void Start()
     {
         attackBox.SetActive(false);
+        
+        audioSource = GetComponent<AudioSource>();
     }
 
+    void PlaySound(AudioClip soundClip)
+    {
+        // Play the specified sound clip
+        audioSource.clip = soundClip;
+        audioSource.Play();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -22,6 +34,7 @@ public class PlayerAttack : MonoBehaviour
 
         if(Input.GetKey("f"))
         {
+ 
             attackBox.SetActive(true);
             if(stateInfo.IsName("Armature|PigeonJump") || stateInfo.IsName("Armature|PigeonJumpAttack"))
             {
@@ -32,6 +45,9 @@ public class PlayerAttack : MonoBehaviour
             {
                 anim.Play("Armature|PigeonAttack");
             }
+            // Play the specified sound clip 
+            PlaySound(Tickles);
+             
         }
         else
         {
