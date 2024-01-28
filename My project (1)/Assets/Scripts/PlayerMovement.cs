@@ -62,11 +62,16 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKeyDown("w") && grounded)
         {
             Jump();
+            anim.Play("Armature|PigeonJump");
+            anim.ResetTrigger("Land");
         }
         //Double Jump
         else if(Input.GetKeyDown("w") && !grounded && enableJump)
         {
             Jump();
+            anim.Rebind();
+            anim.Play("Armature|PigeonJump");
+            anim.ResetTrigger("Land");
             enableJump = false;
         }
         if((stateInfo.IsName("Armature|PigeonJump") || stateInfo.IsName("Armature|PigeonJumpAttack")) && stateInfo.normalizedTime > 0.5f)
@@ -86,8 +91,6 @@ public class PlayerMovement : MonoBehaviour
     }
     void Jump()
     {
-        anim.Play("Armature|PigeonJump");
-        anim.ResetTrigger("Land");
         Vector3 oldVelocity = rb.velocity;
         rb.velocity = new Vector3(oldVelocity.x, jumpSpeed, oldVelocity.z);
         grounded = false;

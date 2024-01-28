@@ -58,7 +58,7 @@ public class CatLogic : MonoBehaviour
             {
                 int randomInt = Random.Range(0, PortalPos.Length);
                 Vector3 portalPos = PortalPos[randomInt].transform.position;
-                transform.position = portalPos - 0.2f * Vector3.down;
+                transform.position = portalPos + 0.5f * Vector3.down;
                 curPortal = PortalPos[randomInt];
                 PortalPos[randomInt].SetActive(true);
                 enablePortal = true;

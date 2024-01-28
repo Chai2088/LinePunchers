@@ -19,7 +19,7 @@ public class GameOverScene : MonoBehaviour
         timer += Time.deltaTime;
         if(timer > 2.0f)
         {
-            SceneManager.LoadScene("Level1");
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }

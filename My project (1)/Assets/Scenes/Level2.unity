@@ -213,6 +213,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PortalBox (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7110260454318355927, guid: d85bc2ecfae8a764b8205aa87eda2d40, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7508656978406800629, guid: d85bc2ecfae8a764b8205aa87eda2d40, type: 3}
       propertyPath: anim
       value: 
@@ -454,6 +458,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PortalContainer
       objectReference: {fileID: 0}
+    - target: {fileID: 7110260454318355927, guid: d85bc2ecfae8a764b8205aa87eda2d40, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7508656978406800629, guid: d85bc2ecfae8a764b8205aa87eda2d40, type: 3}
       propertyPath: anim
       value: 
@@ -531,6 +539,10 @@ PrefabInstance:
     - target: {fileID: 7110260454318355927, guid: d85bc2ecfae8a764b8205aa87eda2d40, type: 3}
       propertyPath: m_Name
       value: PortalBox (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110260454318355927, guid: d85bc2ecfae8a764b8205aa87eda2d40, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7508656978406800629, guid: d85bc2ecfae8a764b8205aa87eda2d40, type: 3}
       propertyPath: anim
@@ -676,6 +688,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1641634937042825251, guid: 6d8518e8a6a6957469efeef713f1170d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b57700b891f65c44bbe3de422e823afa, type: 2}
+    - target: {fileID: 3059737558417605594, guid: 6d8518e8a6a6957469efeef713f1170d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b57700b891f65c44bbe3de422e823afa, type: 2}
+    - target: {fileID: 3692381385594730136, guid: 6d8518e8a6a6957469efeef713f1170d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b57700b891f65c44bbe3de422e823afa, type: 2}
     - target: {fileID: 7319056059583140438, guid: 6d8518e8a6a6957469efeef713f1170d, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -744,6 +768,10 @@ PrefabInstance:
     - target: {fileID: 7110260454318355927, guid: d85bc2ecfae8a764b8205aa87eda2d40, type: 3}
       propertyPath: m_Name
       value: PortalContainer (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110260454318355927, guid: d85bc2ecfae8a764b8205aa87eda2d40, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7508656978406800629, guid: d85bc2ecfae8a764b8205aa87eda2d40, type: 3}
       propertyPath: anim
@@ -815,6 +843,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2292521709014591229, guid: 2e10e2aa389aaa04da9780e8c4d94af6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 97b088ac288c7fa44952d8045ac50ecb, type: 2}
     - target: {fileID: 6218091250690300444, guid: 2e10e2aa389aaa04da9780e8c4d94af6, type: 3}
       propertyPath: m_Name
       value: fbxeditormanoblanca Variant
@@ -1053,6 +1085,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PortalBox (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7110260454318355927, guid: d85bc2ecfae8a764b8205aa87eda2d40, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7508656978406800629, guid: d85bc2ecfae8a764b8205aa87eda2d40, type: 3}
       propertyPath: anim
       value: 
@@ -1278,7 +1314,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1302,7 +1338,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 816974701}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.31, y: 0.01, z: -10}
+  m_LocalPosition: {x: 0.79, y: 0.38, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1322,8 +1358,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1499092490}
-  limits: {x: -4.5, y: 3.86}
-  vLimits: {x: -0.03, y: 4.01}
+  limits: {x: -2.82, y: 2.12}
+  vLimits: {x: 0.14, y: 2.8}
 --- !u!114 &816974706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1640,6 +1676,10 @@ PrefabInstance:
     - target: {fileID: 7110260454318355927, guid: d85bc2ecfae8a764b8205aa87eda2d40, type: 3}
       propertyPath: m_Name
       value: PortalContainer (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110260454318355927, guid: d85bc2ecfae8a764b8205aa87eda2d40, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7508656978406800629, guid: d85bc2ecfae8a764b8205aa87eda2d40, type: 3}
       propertyPath: anim
@@ -2084,6 +2124,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PortalBox (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7110260454318355927, guid: d85bc2ecfae8a764b8205aa87eda2d40, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7508656978406800629, guid: d85bc2ecfae8a764b8205aa87eda2d40, type: 3}
       propertyPath: anim
       value: 
@@ -2526,6 +2570,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2132402970448214992, guid: 730584bb1a47e7a42aa2aaf18254375d, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4761229421158989156, guid: 730584bb1a47e7a42aa2aaf18254375d, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -2573,6 +2621,10 @@ PrefabInstance:
     - target: {fileID: 4761229421158989156, guid: 730584bb1a47e7a42aa2aaf18254375d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5056553726354412563, guid: 730584bb1a47e7a42aa2aaf18254375d, type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6903058387669217012, guid: 730584bb1a47e7a42aa2aaf18254375d, type: 3}
       propertyPath: m_Name
@@ -2843,6 +2895,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PortalBox
       objectReference: {fileID: 0}
+    - target: {fileID: 7110260454318355927, guid: d85bc2ecfae8a764b8205aa87eda2d40, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7508656978406800629, guid: d85bc2ecfae8a764b8205aa87eda2d40, type: 3}
       propertyPath: anim
       value: 
@@ -3077,6 +3133,10 @@ PrefabInstance:
     - target: {fileID: 8579064039397912923, guid: cdf400fa54d2bdf40acb0c9acdfcf221, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579064039397912923, guid: cdf400fa54d2bdf40acb0c9acdfcf221, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3336,6 +3396,10 @@ PrefabInstance:
     - target: {fileID: 7110260454318355927, guid: d85bc2ecfae8a764b8205aa87eda2d40, type: 3}
       propertyPath: m_Name
       value: PortalContainer (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110260454318355927, guid: d85bc2ecfae8a764b8205aa87eda2d40, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7508656978406800629, guid: d85bc2ecfae8a764b8205aa87eda2d40, type: 3}
       propertyPath: anim
